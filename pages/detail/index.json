@@ -1,0 +1,6 @@
+{
+  "navigationBarBackgroundColor": "#7200FF",
+  "usingComponents": {
+      "my-card": "/components/card/index"
+  }
+}

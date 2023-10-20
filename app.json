@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/list/index",
+    "pages/search/index",
+    "pages/detail/index",
+    "pages/answer/index"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "navigationBarBackgroundColor": "#7200FF",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

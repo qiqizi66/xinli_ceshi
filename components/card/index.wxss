@@ -1,0 +1,276 @@
+.card {
+    padding: 0 30rpx 20rpx;
+    box-sizing: border-box;
+    display: block;
+}
+
+.qbg {
+    width: 630rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300rpx;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+    margin-left: 60rpx;
+}
+
+.card_title {
+    padding: 0 30rpx;
+}
+
+.card_title,.card_title_con {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.card_title_con {
+    border-radius: 20rpx 20rpx 0 0;
+    background: linear-gradient(180deg,#ffed00,#ffd600);
+    height: 64rpx;
+    color: #444;
+    font-size: 28rpx;
+    line-height: 64rpx;
+    padding: 0 20rpx;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.card_top {
+    position: relative;
+    min-height: 150rpx;
+    padding-top: 35rpx;
+    width: 100%;
+    background: #fff;
+    background: radial-gradient(circle at bottom left,transparent 30rpx,#fff 0) 0 100%,radial-gradient(circle at bottom right,transparent 30rpx,#fff 0) 100% 100%;
+    background-size: 90% 100%;
+    background-repeat: no-repeat;
+    border-radius: 30rpx 30rpx 0 0;
+    box-shadow: 0 -4rpx -10rpx rgba(0,0,0,.04);
+}
+
+.card_top_label {
+    width: 100%;
+    font-size: 26rpx;
+    color: #757575;
+    line-height: 37rpx;
+    text-align: center;
+}
+
+.card_top_title {
+    color: #212121;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20rpx 30rpx 50rpx;
+    font-size: 32rpx;
+    line-height: 45rpx;
+    text-align: center;
+}
+
+.card_bottom {
+    position: relative;
+    min-height: 300rpx;
+    padding-top: 35rpx;
+    padding-bottom: 74rpx;
+    width: 100%;
+    background: #fff;
+    background: radial-gradient(circle at top left,transparent 30rpx,#fff 0) 0 0,radial-gradient(circle at top right,transparent 30rpx,#fff 0) 100% 0;
+    background-size: 90% 100%;
+    background-repeat: no-repeat;
+    border-radius: 0 0 30rpx 30rpx;
+    box-shadow: 0 4rpx 10rpx rgba(0,0,0,.04);
+}
+
+.card_bottom_img {
+    text-align: center;
+    width: 100%;
+    padding: 20rpx 0;
+    box-sizing: border-box;
+}
+
+.card_btns {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    top: 30rpx;
+    z-index: 2;
+}
+
+.card_btns .prev_btn {
+    width: 228rpx;
+    height: 87rpx;
+    background: linear-gradient(39deg,rgba(90,10,255,.1),rgba(114,0,255,.1));
+    border-radius: 13rpx;
+    color: #7200ff;
+    font-size: 34rpx;
+    line-height: 87rpx;
+    text-align: center;
+}
+
+.card_btns .card_process {
+    color: #6d02ff;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.card_btns .card_process .bold {
+    font-weight: 700;
+    font-size: 60rpx;
+    margin: 0 10rpx;
+}
+
+.border_top {
+    width: calc(100% - 60rpx);
+    position: absolute;
+    top: 0;
+    left: 30rpx;
+    border-top: 1px dashed #e8ebf0;
+}
+
+.result {
+    padding: 0 30rpx;
+    box-sizing: border-box;
+}
+
+.result .options {
+    width: 100%;
+}
+
+.result .options .item {
+    width: 100%rpx;
+    box-sizing: border-box;
+    padding: 20rpx 30rpx;
+    height: auto;
+    background: #f2f2f2;
+    border: 6rpx solid #f2f2f2;
+    border-radius: 18rpx;
+    margin-bottom: 24rpx;
+    line-height: 40rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.result .options .item .label {
+    color: #2c2a44;
+    font-size: 30rpx;
+    flex: 1;
+    box-sizing: border-box;
+    padding-right: 20rpx;
+}
+
+.result .options .item .check {
+    position: relative;
+    width: 42rpx;
+    height: 42rpx;
+    border: 7rpx solid #e3e3e3;
+    border-radius: 100%;
+}
+
+.result .options .item_checked {
+    border: 6rpx solid #7200ff;
+    background: #e9fefe;
+}
+
+.result .options .item_checked .label {
+    color: #7200ff;
+}
+
+.result .options .item_checked .check {
+    border: 7rpx solid #fcc614;
+}
+
+.result .options .item_checked .check::after {
+    content: "";
+    position: absolute;
+    left: 13rpx;
+    top: 13rpx;
+    width: 16rpx;
+    height: 16rpx;
+    background-color: #fcc614;
+    border-radius: 100%;
+}
+
+.result .result_btn {
+    margin: 60rpx auto 30rpx;
+    width: 470rpx;
+    height: 100rpx;
+    background: linear-gradient(39deg,#5a0aff,#7200ff);
+    border-radius: 50rpx;
+    border: 7rpx solid #03fdf5;
+    color: #fff;
+    font-size: 34rpx;
+    line-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result .result_btn .play {
+    width: 50rpx;
+    height: 50rpx;
+    margin-right: 20rpx;
+}
+
+.card_type_3 .result .options {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card_type_3 .result .options .item {
+    width: auto;
+    background: none;
+    border: 6rpx solid transparent;
+    justify-content: flex-start;
+}
+
+.card_type_3 .result .options .label {
+    margin-right: 10rpx;
+}
+
+.card_type_3 .result .options .item_checked {
+    border: 6rpx solid transparent;
+}
+
+.circle {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100rpx;
+    height: 74rpx;
+    content: "";
+    background-color: #f4f4f4;
+    border-bottom-left-radius: 30rpx;
+    border-top-right-radius: 100%;
+}
+
+.circle2 {
+    left: 120rpx;
+    bottom: 60rpx;
+    width: 26rpx;
+    height: 26rpx;
+}
+
+.circle2,.circle3 {
+    position: absolute;
+    content: "";
+    background-color: #f4f4f4;
+    border-radius: 100%;
+}
+
+.circle3 {
+    left: 160rpx;
+    bottom: 20rpx;
+    width: 15rpx;
+    height: 15rpx;
+}

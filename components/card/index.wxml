@@ -1,0 +1,175 @@
+<view class="card_wrap">
+    <view class="qbg"  style="background-image:url('{{item.bgImgUrl||defalutimg}}')"></view>
+    <view class="card" wx:if="{{item.questionType=='SINGLE'}}">
+        <view class="card_title">
+            <view class="card_title_con">{{item.title}}</view>
+        </view>
+        <view class="card_top">
+            <view class="card_top_title">{{item.crossHeadList[0].title}}</view>
+        </view>
+        <view class="card_bottom">
+            <view class="border_top"></view>
+            <view class="card_bottom_img" wx:if="{{item.crossHeadList[0].illustrationUrl}}">
+                <image mode="widthFix" src="{{item.crossHeadList[0].illustrationUrl}}"></image>
+            </view>
+            <view class="result">
+                <view class="options">
+                    <view bindtap="checkHandle" class="item {{index===checkedIndex?'item_checked':''}}" data-index="{{index}}" wx:for="{{item.crossHeadList[0].questionOptList}}" wx:key="id">
+                        <view class="label">{{item.optSeq}}、{{item.optContent}}</view>
+                        <view class="check"></view>
+                    </view>
+                </view>
+                <button bindtap="jumpToAnswer" class="result_btn" wx:if="{{showResult}}">
+                    <image class="play" mode="widthFix" src="{{play}}"></image>
+                    <view class="text">{{btnText}}</view>
+                </button>
+            </view>
+            <view class="circle"></view>
+            <view class="circle2"></view>
+            <view class="circle3"></view>
+        </view>
+    </view>
+    <view class="card" wx:elif="{{item.questionType=='VIEW'}}">
+        <view class="card_title">
+            <view class="card_title_con">{{item.title}}</view>
+        </view>
+        <view class="card_top">
+            <view class="card_top_title">{{item.crossHeadList[0].title}}</view>
+        </view>
+        <view class="card_bottom">
+            <view class="border_top"></view>
+            <view class="card_bottom_img">
+                <image mode="widthFix" src="{{item.crossHeadList[0].illustrationUrl}}"></image>
+            </view>
+            <view class="result">
+                <view class="options">
+                    <view bindtap="checkHandle" class="item {{index===checkedIndex?'item_checked':''}}" data-index="{{index}}" wx:for="{{item.crossHeadList[0].questionOptList}}" wx:key="id">
+                        <view class="label">{{item.optSeq}}、{{item.optContent}}</view>
+                        <view class="check"></view>
+                    </view>
+                </view>
+                <button bindtap="jumpToAnswer" class="result_btn" wx:if="{{showResult}}">
+                    <image class="play" mode="widthFix" src="{{play}}"></image>
+                    <view class="text">{{btnText}}</view>
+                </button>
+            </view>
+            <view class="circle"></view>
+            <view class="circle2"></view>
+            <view class="circle3"></view>
+        </view>
+    </view>
+    <block wx:elif="{{item.questionType=='SCORE'}}">
+        <view class="card" wx:if="{{idx==selectIndex}}" wx:for="{{item.crossHeadList}}" wx:for-index="idx" wx:for-item="one" wx:key="id">
+            <view class="card_title">
+                <view class="card_title_con">{{item.title}}</view>
+            </view>
+            <view class="card_top">
+                <view class="card_top_label">- 第 {{selectIndex+1}} 题 -</view>
+                <view class="card_top_title">{{one.title}}</view>
+            </view>
+            <view class="card_bottom">
+                <view class="border_top"></view>
+                <view class="result">
+                    <view class="options">
+                        <view bindtap="checkHandle" class="item {{oIndex===one.checked?'item_checked':''}}" data-index="{{oIndex}}" wx:for="{{one.questionOptList}}" wx:for-index="oIndex" wx:for-item="oItem" wx:key="key">
+                            <view class="label">{{oItem.optSeq}}、{{oItem.optContent}}</view>
+                            <view class="check"></view>
+                        </view>
+                    </view>
+                    <button bindtap="jumpToAnswer" class="result_btn" wx:if="{{showResult}}">
+                        <image class="play" mode="widthFix" src="{{play}}"></image>
+                        <view class="text">{{btnText}}</view>
+                    </button>
+                </view>
+                <view class="card_btns">
+                    <view bindtap="jumpPrev" class="prev_btn" wx:if="{{selectIndex>0}}">
+                            上一题
+                        </view>
+                    <view wx:else></view>
+                    <view class="card_process">
+                        <view>第</view>
+                        <view class="bold">{{selectIndex+1}}</view>
+                        <view>/ {{item.crossHeadList.length}} 題</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <block wx:elif="{{item.questionType=='MBTI'}}">
+        <view class="card" wx:if="{{idx==selectIndex}}" wx:for="{{item.crossHeadList}}" wx:for-index="idx" wx:for-item="one" wx:key="id">
+            <view class="card_title">
+                <view class="card_title_con">{{item.title}}</view>
+            </view>
+            <view class="card_top">
+                <view class="card_top_label">- 第 {{selectIndex+1}} 题 -</view>
+                <view class="card_top_title">{{one.title}}</view>
+            </view>
+            <view class="card_bottom">
+                <view class="border_top"></view>
+                <view class="result">
+                    <view class="options">
+                        <view bindtap="checkHandle" class="item {{oIndex===one.checked?'item_checked':''}}" data-index="{{oIndex}}" wx:for="{{one.questionOptList}}" wx:for-index="oIndex" wx:for-item="oItem" wx:key="key">
+                            <view class="label">{{oItem.optSeq}}、{{oItem.optContent}}</view>
+                            <view class="check"></view>
+                        </view>
+                    </view>
+                    <button bindtap="jumpToAnswer" class="result_btn" wx:if="{{showResult}}">
+                        <image class="play" mode="widthFix" src="{{play}}"></image>
+                        <view class="text">{{btnText}}</view>
+                    </button>
+                </view>
+                <view class="card_btns">
+                    <view bindtap="jumpPrev" class="prev_btn" wx:if="{{selectIndex>0}}">
+                            上一题
+                        </view>
+                    <view wx:else></view>
+                    <view class="card_process">
+                        <view>第</view>
+                        <view class="bold">{{selectIndex+1}}</view>
+                        <view>/ {{item.crossHeadList.length}} 題</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <block wx:elif="{{item.questionType=='REDIRECT'}}">
+        <view class="card" wx:if="{{idx==selectIndex}}" wx:for="{{item.crossHeadList}}" wx:for-index="idx" wx:for-item="one" wx:key="id">
+            <view class="card_title">
+                <view class="card_title_con">{{item.title}}</view>
+            </view>
+            <view class="card_top">
+                <view class="card_top_label">- 第{{selectIndex+1}}题 -</view>
+                <view class="card_top_title">{{one.title}}</view>
+            </view>
+            <view class="card_bottom">
+                <view class="border_top"></view>
+                <view class="result">
+                    <view class="options">
+                        <view bindtap="checkHandle" class="item {{oIndex===one.checked?'item_checked':''}}" data-index="{{oIndex}}" wx:for="{{one.questionOptList}}" wx:for-index="oIndex" wx:for-item="oItem" wx:key="id">
+                            <view class="label">{{oItem.optContent}} {{oItem.redirectSerialNum?' → 转第'+oItem.redirectSerialNum+'题':''}}</view>
+                            <view class="check"></view>
+                        </view>
+                    </view>
+                    <button bindtap="jumpToAnswer" class="result_btn" wx:if="{{showResult}}">
+                        <image class="play" mode="widthFix" src="{{play}}"></image>
+                        <view class="text">{{btnText}}</view>
+                    </button>
+                </view>
+                <view class="card_btns">
+                    <view bindtap="jumpPrev" class="prev_btn" wx:if="{{selectIndex>0}}">
+                            上一题
+                        </view>
+                    <view wx:else></view>
+                    <view class="card_process">
+                        <view>第</view>
+                        <view class="bold">{{selectIndex+1}}</view>
+                        <view>/ {{item.crossHeadList.length}} 題</view>
+                    </view>
+                </view>
+                <view class="circle"></view>
+                <view class="circle2"></view>
+                <view class="circle3"></view>
+            </view>
+        </view>
+    </block>
+</view>

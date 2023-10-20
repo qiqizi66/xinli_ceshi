@@ -1,0 +1,28 @@
+<scroll-view bindscrolltolower="lowerScroll" class="container_list" lowerThreshold="{{50}}" scrollWithAnimation="true" scrollY="true" style="height: 100vh;">
+    <view class="container">
+        <view class="wrap">
+            <view class="recommend">
+                <view class="list">
+                    <block wx:for="{{list}}" wx:key="id">
+                        <view bindtap="jumpDetail" class="item" data-id="{{item.topicID}}" wx:if="{{!item.adtype}}">
+                            <image class="theme" src="{{item.coverImgUrl}}"></image>
+                            <view class="item_right">
+                                <view class="item_title">{{item.title}}</view>
+                                <view class="item_des" wx:if="{{item.subText}}">{{item.subText}}</view>
+                                <view class="item_bottom">
+                                    <view class="item_bottom_inner">
+                                        <image class="icon" src="{{icons.icon05}}"></image>
+                                        <view class="text">{{item.reads}}人已测</view>
+                                    </view>
+                                    <view class="item_btn">立即测试</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view wx:else></view>
+                    </block>
+                </view>
+                <view class="adx3"></view>
+            </view>
+        </view>
+    </view>
+</scroll-view>

@@ -1,0 +1,45 @@
+<view class="container">
+    <view class="wrap">
+        <view class="search_box">
+            <view class="input_box">
+                <image class="ic_search" src="{{icons.ic_search}}"></image>
+                <input bindconfirm="handleConfirm" bindinput="handleInput" placeholder="搜索关键词，发现更多有趣" placeholderStyle="color:#9B9AA6;" value="{{keyWord}}"></input>
+                <view class="btns" wx:if="{{keyWord.length>0}}">
+                    <image bindconfirm="searchHandle" bindtap="clearHandle" class="ic_del" src="{{icons.del}}"></image>
+                    <view class="input_box_bor"></view>
+                    <view bindtap="searchHandle" class="input_box_search_btn">搜索</view>
+                </view>
+                <view bindtap="backHandle" class="btns" wx:else>
+                    <view class="input_box_cancel_btn">取消</view>
+                </view>
+            </view>
+        </view>
+        <scroll-view lowerThreshold="{{50}}" scrollWithAnimation="true" scrollY="true" style="height: {{winHeight}}rpx;" wx:if="{{list.length>0}}">
+            <view class="list">
+                <block wx:for="{{list}}" wx:key="id">
+                    <view bindtap="jumpDetail" class="item" data-id="{{item.topicID}}" wx:if="{{!item.adtype}}">
+                        <image class="theme" src="{{item.coverImgUrl}}"></image>
+                        <view class="item_right">
+                            <view class="item_title">{{item.title}}</view>
+                            <view class="item_des" wx:if="{{item.subText}}">{{item.subText}}</view>
+                            <view class="item_bottom">
+                                <view class="item_bottom_inner">
+                                    <image class="icon" src="{{icons.ic_hot}}"></image>
+                                    <view class="text">{{item.reads}}人已测</view>
+                                </view>
+                                <view class="item_btn">
+                                    立即测试
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view wx:else></view>
+                </block>
+            </view>
+        </scroll-view>
+        <view class="no_data" wx:else>
+            <image class="no_img" src="{{icons.no}}"></image>
+            <view class="no_data_text">抱歉，未搜到相关内容～</view>
+        </view>
+    </view>
+</view>

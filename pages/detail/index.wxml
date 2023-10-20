@@ -1,0 +1,15 @@
+<view class="container container_0{{bg}}">
+    <view class="blank"></view>
+    <view bindtap="backHome" class="back" style="top: {{topDistance}}px;" wx:if="{{hasHome}}">
+        <image mode="scaleToFill" src="{{icons.home}}"></image>
+    </view>
+    <view bindtap="backHandle" class="back" style="top: {{topDistance}}px;" wx:else>
+        <image mode="scaleToFill" src="{{icons.back}}"></image>
+    </view>
+    <view class="wrap">
+        <my-card bind:changeIndex="changeIndex" item="{{item}}" wx:if="{{item}}"></my-card>
+        <div class="pader">
+            <ad unit-id="adunit-95b0e6fbacbad965" ad-type="video" ad-theme="white"></ad>
+        </div>
+    </view>
+</view>

@@ -1,0 +1,9 @@
+<view class="c_alert_wrap">
+    <view class="alert_ad_box">
+        <slot></slot>
+    </view>
+    <view bindtap="closeHandle" class="close">
+        <view class="bor"></view>
+        <image class="close_img" src="{{close}}"></image>
+    </view>
+</view>

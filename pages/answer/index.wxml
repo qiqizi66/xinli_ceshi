@@ -1,0 +1,129 @@
+<view class="container container_all">
+    <view class="container_bg">
+        <view class="blank"></view>
+        <view bindtap="backHandle" class="back" style="top: {{topDistance}}px;">
+            <image mode="scaleToFill" src="{{icons.back}}"></image>
+        </view>
+        <view class="wrap">
+            <view class="answer" wx:if="{{result.answerType=='RANGE'}}">
+                <view class="answer_title {{result.answerTitle?'answer_title_pad':''}}">{{result.title}}</view>
+                <view class="answer_card">
+                    <view class="answer_card_title" style="{{answerImg}}" wx:if="{{result.answerTitle}}">
+                        <view class="answer_card_title_box answer_card_title_box_{{ans}}">
+                            {{result.answerTitle}}
+                        </view>
+                    </view>
+                    <view class="answer_card_content">
+                        <rich-text nodes="{{result.answerDesc}}"></rich-text>
+                    </view>
+                    <view class="answer_btns">
+                        <view bindtap="jumpDetail" class="answer_repeat_btn" data-id="{{id}}">再测一次</view>
+                        <button class="answer_share_btn" openType="share">分享</button>
+                    </view>
+                    <view class="circle"></view>
+                    <view class="circle2"></view>
+                    <view class="circle3"></view>
+                    <view class="alert_info">- 结果仅供娱乐 -</view>
+                </view>
+            </view>
+            <view class="answer" wx:elif="{{result.answerType=='STAR'}}">
+                <view class="answer_title {{result.answerTitle?'answer_title_pad':''}}">{{result.title}}</view>
+                <view class="answer_card">
+                    <view class="answer_card_title" style="{{answerImg}}" wx:if="{{result.answerTitle}}">
+                        <view class="answer_card_title_box answer_card_title_box_{{ans}}">
+                            <view>{{result.answerTitle}}</view>
+                            <view class="star">
+                                <view class="star2" wx:for="{{result.x2}}">
+                                    <image mode="aspectFit" src="{{icons.icon07}}"></image>
+                                </view>
+                                <view class="star1" wx:for="{{result.x1}}">
+                                    <image mode="aspectFit" src="{{icons.icon08}}"></image>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="answer_card_content">
+                        <rich-text nodes="{{result.answerDesc}}"></rich-text>
+                    </view>
+                    <view class="answer_btns">
+                        <view bindtap="jumpDetail" class="answer_repeat_btn" data-id="{{id}}">再测一次</view>
+                        <button class="answer_share_btn" openType="share">分享</button>
+                    </view>
+                    <view class="circle"></view>
+                    <view class="circle2"></view>
+                    <view class="circle3"></view>
+                    <view class="alert_info">- 结果仅供娱乐 -</view>
+                </view>
+            </view>
+            <view class="answer" wx:elif="{{result.answerType=='PERCENT'}}">
+                <view class="answer_title {{result.answerTitle?'answer_title_pad':''}}">{{result.title}}</view>
+                <view class="answer_card">
+                    <view class="answer_card_title" style="{{answerImg}}" wx:if="{{result.answerTitle}}">
+                        <view class="answer_card_title_box answer_card_title_box_{{ans}}">
+                            {{result.answerTitle}} {{result.answerContent?result.answerContent:''}}
+                        </view>
+                    </view>
+                    <view class="answer_card_content">
+                        <rich-text nodes="{{result.answerDesc}}"></rich-text>
+                    </view>
+                    <view class="answer_btns">
+                        <view bindtap="jumpDetail" class="answer_repeat_btn" data-id="{{id}}">再测一次</view>
+                        <button class="answer_share_btn" openType="share">分享</button>
+                    </view>
+                    <view class="circle"></view>
+                    <view class="circle2"></view>
+                    <view class="circle3"></view>
+                    <view class="alert_info">- 结果仅供娱乐 -</view>
+                </view>
+            </view>
+            <view class="answer" wx:else>
+                <view class="answer_title {{result.answerTitle?'answer_title_pad':''}}">{{result.title}}</view>
+                <view class="answer_card">
+                    <view class="answer_card_title" style="{{answerImg}}" wx:if="{{result.answerTitle}}">
+                        <view class="answer_card_title_box answer_card_title_box_{{ans}}">
+                            {{result.answerTitle}} {{result.answerContent?result.answerContent:''}}
+                        </view>
+                    </view>
+                    <view class="answer_card_content">
+                        <rich-text nodes="{{result.answerDesc}}"></rich-text>
+                    </view>
+                    <view class="answer_btns">
+                        <view bindtap="jumpDetail" class="answer_repeat_btn" data-id="{{id}}">再测一次</view>
+                        <button class="answer_share_btn" openType="share">分享</button>
+                    </view>
+                    <view class="circle"></view>
+                    <view class="circle2"></view>
+                    <view class="circle3"></view>
+                    <view class="alert_info">- 结果仅供娱乐 -</view>
+                </view>
+            </view>
+            <view class="recommend">
+                <view class="title">
+                    <view class="text">- 更多测试 -</view>
+                </view>
+                <view class="list">
+                    <block wx:for="{{list}}" wx:key="id">
+                        <view bindtap="jumpDetail" class="item" data-id="{{item.topicID}}" wx:if="{{!item.adtype}}">
+                            <image class="theme" src="{{item.coverImgUrl}}"></image>
+                            <view class="item_right">
+                                <view class="item_title">{{item.title}}</view>
+                                <view class="item_des" wx:if="{{item.subText}}">{{item.subText}}</view>
+                                <view class="item_bottom">
+                                    <view class="item_bottom_inner">
+                                        <image class="icon" src="{{icons.icon05}}"></image>
+                                        <view class="text">{{item.reads}}人已测</view>
+                                    </view>
+                                    <view class="item_btn">立即测试</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view wx:else></view>
+                    </block>
+                </view>
+                <view class="adx adx5">
+                    <!-- <ad adTheme="white" adType="video" unitId="adunit-6107835d68111928"></ad> -->
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

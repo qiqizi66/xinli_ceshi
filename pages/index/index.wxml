@@ -1,0 +1,63 @@
+<scroll-view bindscrolltolower="lowerScroll" class="container_list" id="scrollView" lowerThreshold="{{50}}" scrollWithAnimation="true" scrollY="true" style="height: 100vh;">
+    <view class="container">
+        <view class="wrap">
+            <view bindtap="jumpSearch" class="search_box">
+                <view class="input_box">
+                    <image class="ic_search" src="{{icons.icon07}}"></image>
+                    <view class="search_place">搜索关键词，发现更多有趣</view>
+                </view>
+            </view>
+            <view class="banner">
+                <view class="inner">
+                    <swiper autoplay="{{banner.autoplay}}" circular="{{banner.circular}}" class="swiperBanner" duration="{{banner.duration}}" :current="0" indicatorActiveColor="{{banner.indicatorActiveColor}}" indicatorColor="{{banner.indicatorColor}}" indicatorDots="{{banner.indicatorDots}}" interval="{{banner.interval}}" vertical="{{banner.vertical}}">
+                        <swiper-item wx:for="{{bannerList}}" wx:key="id">
+                            <view bindtap="jumpBannerDetail" class="swiper-item" data-item="{{item}}" data-id="{{item.id}}">
+                                <image src="{{item.bannerImgUrl}}"></image>
+                            </view>
+                        </swiper-item>
+                    </swiper>
+                </view>
+            </view>
+            <view class="cross_box">
+                <view bindtap="jumpList" class="item" data-id="{{item.catalogID}}" data-cate="{{item.catalogName}}" wx:key="catalogID" wx:for="{{catalogList}}">
+                    <view class="item_icon">
+                        <image class="icon" mode="aspectFit" src="{{item.imgUrl}}"></image>
+                    </view>
+                    <view class="text">{{item.catalogName}}</view>
+                </view>
+
+            </view>
+            <view class="recommend">
+                <view class="title">
+                    <image class="title_icon" src="{{icons.icon06}}"></image>
+                    <view class="text">精彩推荐</view>
+                </view>
+                <ad unit-id="adunit-b54ebc6ee6f8784c"></ad>
+                <view class="list">
+                    <view bindtap="jumpDetail" data-id="{{item.topicID}}" wx:for="{{list}}"   wx:key="id">
+                        <view class="item">
+                            <image class="theme" src="{{item.coverImgUrl}}"></image>
+                            <view class="item_right">
+                                <view class="item_title">{{item.title }}</view>
+                                <view class="item_des" wx:if="{{item.subText}}">{{item.subText}}</view>
+                                <view class="item_bottom">
+                                    <view class="item_bottom_inner">
+                                        <image class="icon" src="{{icons.icon05}}"></image>
+                                        <view class="text">{{item.reads}}人已测</view>
+                                    </view>
+                                    <view class="item_btn">
+                                        立即测试
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                        <view wx:if="{{(index+1)%5==0}}">
+                            <ad unit-id="adunit-a879fbe6844f817a"></ad>
+                        </view>
+                    </view>
+                    <ad unit-id="adunit-a879fbe6844f817a"></ad>
+                </view>
+            </view>
+        </view>
+    </view>
+</scroll-view>

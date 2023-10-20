@@ -1,0 +1,9 @@
+{
+  "navigationStyle": "default",
+  "navigationBarBackgroundColor": "#7200FF",
+  "navigationBarTitleText": "MBTI性格测试",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+      "alert-ad": "/components/alertad/index"
+  }
+}
